@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    EventHub.Contracts — the cross-service integration surface (HIGH governance).
+    Holds the wire contracts (BuildingBlocks.Abstractions.Messaging.*: the saga records,
+    EventUpdatedIntegrationEventV1, and the inbox/outbox abstractions). Pure BCL leaf — no package
+    or project dependencies, so every service can reference it without dragging in the kernel.
+
+    IMPORTANT: the C# namespace stays `BuildingBlocks.Abstractions.Messaging` even though the
+    package/assembly is EventHub.Contracts. MassTransit derives RabbitMQ exchange URNs from the
+    type namespace+name, so renaming the namespace would silently break the saga. The contract
+    snapshot tests (tests/EventHub.Contracts.SnapshotTests) enforce this.
+
+    TargetFramework / Nullable / ImplicitUsings come from Directory.Build.props.
+  -->
+
+  <PropertyGroup>
+    <Version>1.1.0</Version>
+    <Authors>EventHub</Authors>
+    <Description>EventHub cross-service integration contracts: saga + catalog + seat-availability integration messages and the inbox/outbox abstractions.</Description>
+    <PackageTags>eventhub;contracts;messaging</PackageTags>
+  </PropertyGroup>
+
+</Project>

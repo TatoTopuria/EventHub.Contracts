@@ -1,0 +1,47 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    Phase 0 safety net for the repo-per-service split (see docs/REPO-SPLIT-PLAN.md §8).
+    These tests freeze the cross-service WIRE CONTRACTS so the split (or any later edit)
+    cannot silently change them:
+      - MassTransit message URNs  (RabbitMQ exchange identity for the saga)
+      - record member shapes       (additive-only enforcement)
+      - the catalog gRPC descriptor (proto package/service/fields)
+      - the EventUpdated JSON casing (raw-RabbitMQ fan-out wire format)
+    When EventHub.Contracts becomes its own repo, this project moves with it verbatim.
+
+    TreatWarningsAsErrors is intentionally OFF here: the repo builds net8.0 but only the
+    .NET 9/10 SDKs are installed, and newer analyzers would otherwise fail the build.
+  -->
+  <PropertyGroup>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <IsPackable>false</IsPackable>
+    <!-- Local dev box may only have the .NET 9/10 runtime; CI installs 8.0.x. Roll-forward lets
+         this net8.0 test host run on a newer runtime without an env var. -->
+    <RollForward>Major</RollForward>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="coverlet.collector" />
+    <PackageReference Include="FluentAssertions" />
+    <PackageReference Include="MassTransit" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="xunit" />
+    <PackageReference Include="xunit.runner.visualstudio" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="Xunit" />
+  </ItemGroup>
+
+  <!--
+    The snapshot tests cover only the wire contracts, so they reference the contract projects
+    directly (not the kernel). In Phase 1b these become PackageReferences to
+    EventHub.Contracts / EventHub.Contracts.Grpc with no other change to the tests.
+  -->
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\EventHub.Contracts\EventHub.Contracts.csproj" />
+    <ProjectReference Include="..\..\src\EventHub.Contracts.Grpc\EventHub.Contracts.Grpc.csproj" />
+  </ItemGroup>
+
+</Project>

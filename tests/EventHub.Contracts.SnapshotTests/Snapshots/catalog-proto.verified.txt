@@ -1,0 +1,20 @@
+package: catalog
+service catalog.CatalogGrpc
+  rpc GetEventDetails(catalog.GetEventDetailsRequest) returns (catalog.EventDetailsReply)  // /catalog.CatalogGrpc/GetEventDetails
+  rpc GetSeatMap(catalog.GetSeatMapRequest) returns (catalog.SeatMapReply)  // /catalog.CatalogGrpc/GetSeatMap
+message catalog.EventDetailsReply
+  1: event_id (String)
+  2: starts_at_utc (String)
+  3: ends_at_utc (String)
+  4: organizer (String)
+  5: status (String)
+  6: seats (String, repeated)
+  7: reserved_seats (String, repeated)
+message catalog.GetEventDetailsRequest
+  1: event_id (String)
+message catalog.GetSeatMapRequest
+  1: event_id (String)
+message catalog.SeatMapReply
+  1: event_id (String)
+  2: seats (String, repeated)
+  3: reserved_seats (String, repeated)

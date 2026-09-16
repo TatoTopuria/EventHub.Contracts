@@ -1,0 +1,13 @@
+BookingConfirmedV1 => urn:message:BuildingBlocks.Abstractions.Messaging:BookingConfirmedV1
+CancelBookingRequestedV1 => urn:message:BuildingBlocks.Abstractions.Messaging:CancelBookingRequestedV1
+ChargePaymentRequestedV1 => urn:message:BuildingBlocks.Abstractions.Messaging:ChargePaymentRequestedV1
+ConfirmBookingRequestedV1 => urn:message:BuildingBlocks.Abstractions.Messaging:ConfirmBookingRequestedV1
+EventUpdatedIntegrationEventV1 => urn:message:BuildingBlocks.Abstractions.Messaging:EventUpdatedIntegrationEventV1
+NotificationFailedV1 => urn:message:BuildingBlocks.Abstractions.Messaging:NotificationFailedV1
+NotificationSucceededV1 => urn:message:BuildingBlocks.Abstractions.Messaging:NotificationSucceededV1
+NotifyBookingRequestedV1 => urn:message:BuildingBlocks.Abstractions.Messaging:NotifyBookingRequestedV1
+PaymentResultReceivedV1 => urn:message:BuildingBlocks.Abstractions.Messaging:PaymentResultReceivedV1
+RefundCompletedV1 => urn:message:BuildingBlocks.Abstractions.Messaging:RefundCompletedV1
+RefundRequestedV1 => urn:message:BuildingBlocks.Abstractions.Messaging:RefundRequestedV1
+RefundTimeoutExpiredV1 => urn:message:BuildingBlocks.Abstractions.Messaging:RefundTimeoutExpiredV1
+ReserveSeatStartedV1 => urn:message:BuildingBlocks.Abstractions.Messaging:ReserveSeatStartedV1

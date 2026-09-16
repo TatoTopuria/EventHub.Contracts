@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/EventHub.Contracts.Grpc/EventHub.Contracts.Grpc.csproj" />
+    <Project Path="src/EventHub.Contracts/EventHub.Contracts.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/EventHub.Contracts.SnapshotTests/EventHub.Contracts.SnapshotTests.csproj" />
+  </Folder>
+</Solution>

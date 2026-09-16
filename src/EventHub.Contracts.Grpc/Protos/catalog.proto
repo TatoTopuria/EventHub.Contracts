@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+option csharp_namespace = "BuildingBlocks.Grpc.Catalog";
+
+package catalog;
+
+service CatalogGrpc {
+  rpc GetEventDetails (GetEventDetailsRequest) returns (EventDetailsReply);
+  rpc GetSeatMap (GetSeatMapRequest) returns (SeatMapReply);
+}
+
+message GetEventDetailsRequest {
+  string event_id = 1;
+}
+
+message GetSeatMapRequest {
+  string event_id = 1;
+}
+
+message EventDetailsReply {
+  string event_id = 1;
+  string starts_at_utc = 2;
+  string ends_at_utc = 3;
+  string organizer = 4;
+  string status = 5;
+  repeated string seats = 6;
+  repeated string reserved_seats = 7;
+}
+
+message SeatMapReply {
+  string event_id = 1;
+  repeated string seats = 2;
+  repeated string reserved_seats = 3;
+}
