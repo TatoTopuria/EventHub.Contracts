@@ -5,6 +5,7 @@
     <Authors>EventHub</Authors>
     <Description>EventHub gRPC contract: the Catalog service proto (BuildingBlocks.Grpc.Catalog).</Description>
     <PackageTags>eventhub;contracts;grpc</PackageTags>
+    <RepositoryUrl>https://github.com/TatoTopuria/EventHub.Contracts</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>

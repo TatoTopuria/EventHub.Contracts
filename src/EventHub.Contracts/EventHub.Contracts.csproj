@@ -19,6 +19,7 @@
     <Authors>EventHub</Authors>
     <Description>EventHub cross-service integration contracts: saga + catalog + seat-availability integration messages and the inbox/outbox abstractions.</Description>
     <PackageTags>eventhub;contracts;messaging</PackageTags>
+    <RepositoryUrl>https://github.com/TatoTopuria/EventHub.Contracts</RepositoryUrl>
   </PropertyGroup>
 
 </Project>
